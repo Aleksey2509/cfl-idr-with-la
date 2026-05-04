@@ -17,6 +17,12 @@
  * (indexed 0 … n_par-1 for parentheses, 0 … n_bra-1 for brackets).
  * Unlabeled edges are stored in `normal`.
  */
+#if defined ( __cplusplus )
+extern "C"
+{
+#endif
+
+
 typedef struct {
 	GrB_Index n;		   ///< Number of vertices in the graph
 	int64_t n_par;		   ///< Number of parenthesis types ( and )
@@ -147,3 +153,7 @@ GrB_Info idr_remove_valueflow_unreachable(IdrGraph *out, const IdrGraph *graph);
 GrB_Info idr_get_on_demand(GrB_Matrix *result, const IdrGraph *graph,
 						   GrB_Matrix under_approx, GrB_Matrix over_approx,
 						   bool parity_d, bool valueflow, bool filter_empty);
+
+#if defined ( __cplusplus )
+}
+#endif
